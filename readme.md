@@ -23,3 +23,12 @@ Then open http://localhost:8000 in your browser.
 
 - Replace placeholder contact details with real info.
 - Add service pages, images and booking/contact form.
+
+## What's included now
+
+- Individual service pages: `services/hair.html`, `services/skincare.html`, `services/makeup.html`
+- Contact page: `contact.html` with a client-side contact form
+- Booking page: `booking.html` with a client-side booking form
+- SVG placeholders in `assets/` for service imagery
+
+Note: Forms are client-side only and store submissions in browser `localStorage`. For real bookings/messages, connect the forms to a backend or form service (e.g., Formspree, Netlify Forms, or a simple server endpoint).
