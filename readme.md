@@ -26,9 +26,15 @@ Then open http://localhost:8000 in your browser.
 
 ## What's included now
 
-- Individual service pages: `services/hair.html`, `services/skincare.html`, `services/makeup.html`
+- Individual service pages: `services/hair.html`, `services/skincare.html`, `services/makeup.html`, `services/nails.html`
 - Contact page: `contact.html` with a client-side contact form
 - Booking page: `booking.html` with a client-side booking form
 - SVG placeholders in `assets/` for service imagery
+
+Services offered:
+- Hair Styling
+- Skincare
+- Makeup
+- Nails & Manicure
 
 Note: Forms are client-side only and store submissions in browser `localStorage`. For real bookings/messages, connect the forms to a backend or form service (e.g., Formspree, Netlify Forms, or a simple server endpoint).
