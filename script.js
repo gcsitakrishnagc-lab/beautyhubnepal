@@ -36,4 +36,40 @@ document.addEventListener('DOMContentLoaded',function(){
       bookingForm.reset();
     });
   }
+  
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', function(e){
+      const href = this.getAttribute('href');
+      if(href.length>1){
+        const target = document.querySelector(href);
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth',block:'start'});
+          history.replaceState(null,'',href);
+        }
+      }
+    });
+  });
+
+  // Simple entrance animations for hero
+  const heroText = document.querySelector('.hero-text');
+  const heroImg = document.querySelector('.hero-img img');
+  if(window.IntersectionObserver && (heroText || heroImg)){
+    const io = new IntersectionObserver((entries, obs)=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){
+          en.target.classList.add('in-view');
+          if(en.target.tagName === 'IMG') en.target.style.transform = 'scale(1)';
+          obs.unobserve(en.target);
+        }
+      });
+    },{threshold:0.15});
+    if(heroText) io.observe(heroText);
+    if(heroImg) io.observe(heroImg);
+  } else {
+    // fallback: reveal immediately
+    if(heroText) heroText.classList.add('in-view');
+    if(heroImg) { heroImg.classList.add('in-view'); heroImg.style.opacity = '1'; heroImg.style.transform='scale(1)'; }
+  }
 });
